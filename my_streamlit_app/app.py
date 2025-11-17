@@ -17,19 +17,22 @@ if "Lst_BO_PTF" not in st.session_state:
 if "Lst_Pdt_Gar_EU" not in st.session_state:
     st.session_state.Lst_Pdt_Gar_EU = get_default_lst_pdt_gar_eu()
 
-# Variable pour stocker le DataFrame de résultats
 if "df" not in st.session_state:
     st.session_state.df = None
 
 # ------------------------------------------------------------------
-# Onglets
+# MENU LATÉRAL (sidebar)
 # ------------------------------------------------------------------
-tab_metier, tab_tech = st.tabs(["👁️ Vue métier", "⚙️ Référentiel technique"])
+st.sidebar.title("Navigation")
+page = st.sidebar.radio(
+    "Aller à :",
+    ("Vue métier", "Référentiel technique")
+)
 
 # ==================================================================
-# ONGLET 1 : VUE MÉTIER  → inputs
+# PAGE 1 : VUE MÉTIER  → inputs
 # ==================================================================
-with tab_metier:
+if page == "Vue métier":
     st.title("Vue Métier")
 
     annee_choisie = st.number_input("annee_choisie", 1990, 2100, 2026)
@@ -62,9 +65,9 @@ with tab_metier:
         )
 
 # ==================================================================
-# ONGLET 2 : RÉFÉRENTIEL TECHNIQUE
+# PAGE 2 : RÉFÉRENTIEL TECHNIQUE
 # ==================================================================
-with tab_tech:
+elif page == "Référentiel technique":
     st.title("⚙️ Référentiel technique")
 
     lst_bo_ptf_text = st.text_area(
