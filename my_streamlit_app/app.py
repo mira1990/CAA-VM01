@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 
-from configurations import (
+from pages.configurations import (
     get_default_lst_bo_ptf,
     get_default_lst_pdt_gar_eu,
 )
