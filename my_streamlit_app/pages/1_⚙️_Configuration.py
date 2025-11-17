@@ -1,9 +1,9 @@
 import streamlit as st
 
-st.title("⚙️ Configuration")
+st.title("⚙️ Référentiel technique")
 
-st.write("Modify application settings here.")
-param = st.text_input("Parameter", "default_value")
+st.write("Modification de la configuration du référentiel technique.")
+param = st.text_input("Paramètres", "Valeur")
 
 if st.button("Save"):
     st.success("Saved!")
